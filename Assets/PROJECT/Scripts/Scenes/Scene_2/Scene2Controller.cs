@@ -20,17 +20,15 @@ public class Scene2Controller : MonoBehaviour
     private async void Awake()
     {
         uiControlGroup.alpha = 0;
-        uiControlGroup.blocksRaycasts = false;
         
         uiWinPopup.alpha = 0;
-        uiWinPopup.blocksRaycasts = false;
         
         FaderC.DoFadeOut(2);
         PrepareCar();
 
         await Task.Delay(2000);
         
-        uiControlGroup.DOFade(1, 1).OnComplete(() => { uiControlGroup.blocksRaycasts = true; });
+        uiControlGroup.DOFade(1, 1);
     }
     
 
@@ -40,15 +38,12 @@ public class Scene2Controller : MonoBehaviour
         camera.playerCar = car;
     }
 
-    public void SwhowWinPopup()
+    public void ShowWinPopup()
     {
         uiControlGroup.blocksRaycasts = false;
         uiControlGroup.DOFade(0, 1);
-        
-        uiWinPopup.DOFade(1, 1).OnComplete(() =>
-        {
-            uiWinPopup.blocksRaycasts = true;
-        });
+
+        uiWinPopup.DOFade(1, 1);
     }
 
     public async void TakeWin()

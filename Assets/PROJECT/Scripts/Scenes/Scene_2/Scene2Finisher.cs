@@ -13,7 +13,7 @@ public class Scene2Finisher : MonoBehaviour
 
         if (car != null)
         {
-            _controller.SwhowWinPopup();
+            _controller.ShowWinPopup();
         }
     }
 }
